@@ -18,15 +18,15 @@ All AI features run **locally** — with no dependency on cloud services.
 
 ---
 
-## 🧠 Workflow
+## Workflow
 
 1. **Capture Input**
    - Snap a photo of an issue, drawing, or checklist using the device camera
    - Select additional notes or PDFs from the local file system
 
 2. **Extract Observations**
-   - Run `Windows.Media.Ocr` to extract text from scanned forms or notes
-   - Use the Image Description API to tag or caption site photos
+   - Run OCR to extract text from scanned forms or notes
+   - Use the Image Description API to quickly add captions for site photos
 
 3. **Search for Related Issues**
    - Use the **Semantic Search API** to query past reports or reference materials
@@ -41,7 +41,7 @@ All AI features run **locally** — with no dependency on cloud services.
 
 ---
 
-## 🧩 Example Output (LoRA-Formatted)
+## Example Output (LoRA-Formatted)
 
 ```txt
 Field Report - Daily Site Visit
