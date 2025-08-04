@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Describe Image WCRSample (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Describe Image WCRSample (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

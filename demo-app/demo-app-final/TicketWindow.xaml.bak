@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="AIDevGallery.Sample.TicketWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    Title="Service Ticket - Generated with LoRA"
+    Width="800"
+    Height="900"
+    mc:Ignorable="d">
+
+    <Window.SystemBackdrop>
+        <MicaBackdrop />
+    </Window.SystemBackdrop>
+
+    <Grid Margin="24">
+        <ScrollViewer>
+            <StackPanel Spacing="24">
+                <!-- Header Section -->
+                <Border
+                    Background="{ThemeResource AccentFillColorDefaultBrush}"
+                    CornerRadius="8"
+                    Padding="20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <StackPanel Grid.Column="0">
+                            <TextBlock
+                                Text="SERVICE TICKET"
+                                Style="{ThemeResource TitleLargeTextBlockStyle}"
+                                Foreground="White"
+                                FontWeight="Bold" />
+                            <TextBlock
+                                x:Name="TicketIdText"
+                                Text="Ticket ID: ST-2024-001"
+                                Style="{ThemeResource BodyTextBlockStyle}"
+                                Foreground="White"
+                                Opacity="0.9"
+                                Margin="0,4,0,0" />
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Column="1" HorizontalAlignment="Right">
+                            <TextBlock
+                                x:Name="DateText"
+                                Text="Generated: Today"
+                                Style="{ThemeResource CaptionTextBlockStyle}"
+                                Foreground="White"
+                                Opacity="0.8"
+                                HorizontalAlignment="Right" />
+                            <Border
+                                x:Name="PriorityBadge"
+                                Background="Orange"
+                                CornerRadius="12"
+                                Padding="12,4"
+                                Margin="0,8,0,0">
+                                <TextBlock
+                                    x:Name="PriorityText"
+                                    Text="HIGH PRIORITY"
+                                    Style="{ThemeResource CaptionTextBlockStyle}"
+                                    Foreground="White"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Center" />
+                            </Border>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <!-- Issue Summary Section -->
+                <Border
+                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="20">
+                    <StackPanel Spacing="12">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon FontSize="16" Glyph="&#xE8BC;" />
+                            <TextBlock
+                                Text="Issue Summary"
+                                Style="{ThemeResource SubtitleTextBlockStyle}"
+                                FontWeight="SemiBold" />
+                        </StackPanel>
+                        <TextBlock
+                            x:Name="IssueSummaryText"
+                            Text="Loading issue summary..."
+                            Style="{ThemeResource BodyTextBlockStyle}"
+                            TextWrapping="Wrap"
+                            Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                    </StackPanel>
+                </Border>
+
+                <!-- Required Actions Section -->
+                <Border
+                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="20">
+                    <StackPanel Spacing="12">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon FontSize="16" Glyph="&#xE90F;" />
+                            <TextBlock
+                                Text="Required Actions"
+                                Style="{ThemeResource SubtitleTextBlockStyle}"
+                                FontWeight="SemiBold" />
+                        </StackPanel>
+                        <TextBlock
+                            x:Name="RequiredActionsText"
+                            Text="Loading required actions..."
+                            Style="{ThemeResource BodyTextBlockStyle}"
+                            TextWrapping="Wrap"
+                            Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                    </StackPanel>
+                </Border>
+
+                <!-- Parts and Materials Section -->
+                <Border
+                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="20">
+                    <StackPanel Spacing="12">
+                        <StackPanel Orientation="Horizontal" Spacing="8">
+                            <FontIcon FontSize="16" Glyph="&#xE7B8;" />
+                            <TextBlock
+                                Text="Parts &amp; Materials Needed"
+                                Style="{ThemeResource SubtitleTextBlockStyle}"
+                                FontWeight="SemiBold" />
+                        </StackPanel>
+                        <TextBlock
+                            x:Name="PartsText"
+                            Text="Loading parts and materials..."
+                            Style="{ThemeResource BodyTextBlockStyle}"
+                            TextWrapping="Wrap"
+                            Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                    </StackPanel>
+                </Border>
+
+                <!-- Time Estimate Section -->
+                <Border
+                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="20">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <StackPanel Grid.Column="0" Spacing="12">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <FontIcon FontSize="16" Glyph="&#xE917;" />
+                                <TextBlock
+                                    Text="Estimated Completion Time"
+                                    Style="{ThemeResource SubtitleTextBlockStyle}"
+                                    FontWeight="SemiBold" />
+                            </StackPanel>
+                            <TextBlock
+                                x:Name="TimeEstimateText"
+                                Text="Loading time estimate..."
+                                Style="{ThemeResource BodyTextBlockStyle}"
+                                TextWrapping="Wrap"
+                                Foreground="{ThemeResource TextFillColorPrimaryBrush}" />
+                        </StackPanel>
+                        
+                        <Border
+                            Grid.Column="1"
+                            Background="{ThemeResource SystemFillColorSolidNeutralBackgroundBrush}"
+                            CornerRadius="8"
+                            Padding="16,12"
+                            VerticalAlignment="Center">
+                            <StackPanel HorizontalAlignment="Center">
+                                <TextBlock
+                                    Text="ETA"
+                                    Style="{ThemeResource CaptionTextBlockStyle}"
+                                    HorizontalAlignment="Center"
+                                    Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                                <TextBlock
+                                    x:Name="ETAText"
+                                    Text="TBD"
+                                    Style="{ThemeResource SubtitleTextBlockStyle}"
+                                    FontWeight="Bold"
+                                    HorizontalAlignment="Center"
+                                    Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </Border>
+
+                <!-- Raw JSON Section (Collapsible) -->
+                <Border
+                    Background="{ThemeResource CardBackgroundFillColorDefaultBrush}"
+                    BorderBrush="{ThemeResource CardStrokeColorDefaultBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="20">
+                    <StackPanel Spacing="12">
+                        <Button
+                            x:Name="ShowJsonBtn"
+                            Click="ShowJsonBtn_Click"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            HorizontalAlignment="Left"
+                            Padding="0">
+                            <StackPanel Orientation="Horizontal" Spacing="8">
+                                <FontIcon x:Name="JsonExpandIcon" FontSize="12" Glyph="&#xE76C;" />
+                                <TextBlock
+                                    Text="Show Raw JSON Data"
+                                    Style="{ThemeResource CaptionTextBlockStyle}"
+                                    Foreground="{ThemeResource AccentTextFillColorPrimaryBrush}" />
+                            </StackPanel>
+                        </Button>
+                        <ScrollViewer
+                            x:Name="JsonScrollViewer"
+                            MaxHeight="200"
+                            Visibility="Collapsed"
+                            BorderBrush="{ThemeResource DividerStrokeColorDefaultBrush}"
+                            BorderThickness="1"
+                            CornerRadius="4">
+                            <TextBlock
+                                x:Name="RawJsonText"
+                                Text=""
+                                Style="{ThemeResource CaptionTextBlockStyle}"
+                                FontFamily="Consolas"
+                                Padding="12"
+                                IsTextSelectionEnabled="True"
+                                Background="{ThemeResource SystemFillColorSolidNeutralBackgroundBrush}"
+                                Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                        </ScrollViewer>
+                    </StackPanel>
+                </Border>
+
+                <!-- Submit Button Section -->
+                <Border
+                    Background="{ThemeResource SystemFillColorSolidNeutralBackgroundBrush}"
+                    CornerRadius="8"
+                    Padding="20">
+                    <StackPanel Spacing="16" HorizontalAlignment="Center">
+                        <TextBlock
+                            Text="Ready to submit this service ticket?"
+                            Style="{ThemeResource BodyTextBlockStyle}"
+                            HorizontalAlignment="Center"
+                            Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
+                        
+                        <StackPanel Orientation="Horizontal" Spacing="12" HorizontalAlignment="Center">
+                            <Button
+                                x:Name="SubmitTicketBtn"
+                                Click="SubmitTicketBtn_Click"
+                                Style="{ThemeResource AccentButtonStyle}"
+                                MinWidth="120">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <FontIcon FontSize="16" Glyph="&#xE724;" />
+                                    <TextBlock Text="Submit Ticket" />
+                                </StackPanel>
+                            </Button>
+                            
+                            <Button
+                                x:Name="CancelBtn"
+                                Click="CancelBtn_Click"
+                                MinWidth="120">
+                                <StackPanel Orientation="Horizontal" Spacing="8">
+                                    <FontIcon FontSize="16" Glyph="&#xE711;" />
+                                    <TextBlock Text="Cancel" />
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Window>

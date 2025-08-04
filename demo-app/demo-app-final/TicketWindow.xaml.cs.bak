@@ -1,0 +1,136 @@
+using Microsoft.UI.Xaml;
+using Microsoft.UI.Xaml.Controls;
+using System;
+using System.Text.Json;
+using Windows.UI;
+
+namespace AIDevGallery.Sample;
+
+public sealed partial class TicketWindow : Window
+{
+    public TicketWindow()
+    {
+        this.InitializeComponent();
+        DateText.Text = $"Generated: {DateTime.Now:MMM dd, yyyy HH:mm}";
+        TicketIdText.Text = $"Ticket ID: ST-{DateTime.Now:yyyy}-{new Random().Next(1000, 9999)}";
+    }
+
+    public void PopulateTicketData(string jsonResponse)
+    {
+        try
+        {
+            // Store raw JSON
+            RawJsonText.Text = FormatJson(jsonResponse);
+
+            // Parse JSON and populate fields
+            var ticketData = JsonSerializer.Deserialize<TicketData>(jsonResponse, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+
+            if (ticketData != null)
+            {
+                IssueSummaryText.Text = ticketData.IssueSummary ?? "No issue summary provided";
+                RequiredActionsText.Text = ticketData.RequiredActions ?? "No required actions specified";
+                PartsText.Text = ticketData.PartsNeeded ?? "No parts specified";
+                TimeEstimateText.Text = ticketData.EstimatedTime ?? "Time estimate not provided";
+                
+                // Set priority
+                SetPriority(ticketData.Priority ?? "Medium");
+                
+                // Set ETA
+                ETAText.Text = ticketData.EstimatedTime ?? "TBD";
+            }
+        }
+        catch (JsonException)
+        {
+            // If JSON parsing fails, display the raw response
+            IssueSummaryText.Text = "Failed to parse JSON response";
+            RequiredActionsText.Text = jsonResponse;
+            PartsText.Text = "Raw response displayed above";
+            TimeEstimateText.Text = "Unable to extract time estimate";
+        }
+        catch (Exception ex)
+        {
+            IssueSummaryText.Text = $"Error processing ticket data: {ex.Message}";
+        }
+    }
+
+    private void SetPriority(string priority)
+    {
+        priority = priority.ToUpper();
+        PriorityText.Text = $"{priority} PRIORITY";
+        
+        // Set priority badge color
+        var color = priority switch
+        {
+            "HIGH" or "URGENT" => Colors.Red,
+            "MEDIUM" => Colors.Orange,
+            "LOW" => Colors.Green,
+            _ => Colors.Gray
+        };
+        
+        PriorityBadge.Background = new Microsoft.UI.Xaml.Media.SolidColorBrush(color);
+    }
+
+    private string FormatJson(string json)
+    {
+        try
+        {
+            var jsonDocument = JsonDocument.Parse(json);
+            return JsonSerializer.Serialize(jsonDocument, new JsonSerializerOptions
+            {
+                WriteIndented = true
+            });
+        }
+        catch
+        {
+            return json; // Return original if formatting fails
+        }
+    }
+
+    private void ShowJsonBtn_Click(object sender, RoutedEventArgs e)
+    {
+        if (JsonScrollViewer.Visibility == Visibility.Collapsed)
+        {
+            JsonScrollViewer.Visibility = Visibility.Visible;
+            JsonExpandIcon.Glyph = "\uE70D"; // ChevronUp
+            ((TextBlock)((StackPanel)((Button)sender).Content).Children[1]).Text = "Hide Raw JSON Data";
+        }
+        else
+        {
+            JsonScrollViewer.Visibility = Visibility.Collapsed;
+            JsonExpandIcon.Glyph = "\uE76C"; // ChevronDown
+            ((TextBlock)((StackPanel)((Button)sender).Content).Children[1]).Text = "Show Raw JSON Data";
+        }
+    }
+
+    private async void SubmitTicketBtn_Click(object sender, RoutedEventArgs e)
+    {
+        var dialog = new ContentDialog
+        {
+            Title = "Ticket Submitted",
+            Content = $"Service ticket {TicketIdText.Text.Replace("Ticket ID: ", "")} has been submitted successfully!\n\nThis is a demo - no actual ticket was created.",
+            PrimaryButtonText = "OK",
+            XamlRoot = this.Content.XamlRoot
+        };
+
+        await dialog.ShowAsync();
+        this.Close();
+    }
+
+    private void CancelBtn_Click(object sender, RoutedEventArgs e)
+    {
+        this.Close();
+    }
+}
+
+// Data model for JSON parsing
+public class TicketData
+{
+    public string? IssueSummary { get; set; }
+    public string? Priority { get; set; }
+    public string? RequiredActions { get; set; }
+    public string? PartsNeeded { get; set; }
+    public string? EstimatedTime { get; set; }
+}
