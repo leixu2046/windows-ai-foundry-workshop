@@ -56,29 +56,28 @@ Participants will learn how to leverage Windows AI Foundry to:
 - Implement **5 core AI capabilities** with real business applications
 - Experience the full development lifecycle from UI to AI integration
 
-### **Business Application Scenarios** (30 minutes)
-- **Manufacturing Quality Control**: Automated defect detection and reporting
-- **Healthcare Documentation**: Clinical note processing and compliance reporting  
-- **Field Service Management**: Mobile inspection workflows with intelligent ticket generation
-- **Regulatory Compliance**: Automated audit documentation and risk assessment
+### **Use Case Discussion** (30 minutes)
+- Open discussion with participants about their specific business needs and applications
+- Explore how Windows AI APIs can address real customer challenges
+- Collaborative session to identify implementation opportunities
 
 ---
 
 ## What's Included
 
-### **demo-app/**
+### 📁 **demo-app/**
 Complete application implementation with:
 - **Starter Framework** (`demo-app-start/`) - UI foundation ready for AI integration
 - **Complete Solution** (`demo-app-final/`) - Fully functional reference implementation
 - **Step-by-Step Guides** (`demo-guides/`) - Detailed implementation documentation
 
-### **LoRA Fine-Tuning Training Data/**
+### 📊 **LoRA Fine-Tuning Training Data/**
 Sample datasets and examples for:
 - Custom model training workflows
 - Domain-specific adapter creation
 - Training data preparation patterns
 
-### **Additional Resources**
+### 🔗 **Additional Resources**
 - [Windows AI Platform Documentation](https://learn.microsoft.com/en-us/windows/ai/)
 - [Copilot+ PC Developer Guide](https://learn.microsoft.com/en-us/windows/ai/copilot-pc)
 - [AI Toolkit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio)
@@ -100,27 +99,19 @@ Explore `LoRA Fine-Tuning Training Data/` to understand model customization patt
 
 ---
 
-## Target Industries & Use Cases
+## Workshop Format
 
-### **Manufacturing & Quality Control**
-- Automated visual inspection systems
-- Defect classification and reporting
-- Production line monitoring and analytics
+### **Interactive Learning Approach**
+- Hands-on coding with immediate results
+- Real-time problem solving and debugging
+- Q&A throughout the implementation process
+- Participant-driven exploration of AI capabilities
 
-### **Healthcare & Life Sciences**
-- Medical documentation processing
-- Clinical workflow automation  
-- Regulatory compliance reporting
-
-### **Field Services & Maintenance**
-- Mobile inspection applications
-- Predictive maintenance workflows
-- Work order automation and optimization
-
-### **Financial Services & Insurance**
-- Document processing and analysis
-- Claims assessment automation
-- Risk evaluation and reporting
+### **Discussion-Based Use Case Exploration**
+- Participants share their specific business challenges
+- Collaborative brainstorming on AI application opportunities
+- Technical feasibility discussions for real-world scenarios
+- Follow-up planning for proof-of-concept development
 
 ---
 
