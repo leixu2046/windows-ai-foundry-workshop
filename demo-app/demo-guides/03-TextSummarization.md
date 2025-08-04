@@ -1,19 +1,19 @@
-# Lab Guide 3: Implementing Text Summarization
+# Module 3: Implementing Text Summarization
 
 ## Overview
-In this lab, you'll implement AI-powered text summarization using the Windows AI Platform's language models. This feature will allow users to generate concise summaries of their inspection reports.
+This module implements robust text summarization using Windows AI Foundry AI APIs language models. This capability enables automated generation of executive summaries from detailed inspection reports, improving efficiency and decision-making processes.
 
-## Learning Objectives
-- Understand Windows AI Platform text processing capabilities
-- Implement LanguageModel for text generation tasks
-- Create a TextSummarizer for document summarization
-- Handle language model initialization and lifecycle
-- Design effective prompts for summarization tasks
+## Implementation Objectives
+- Master Windows AI APIs text processing for enterprise applications
+- Deploy LanguageModel services for production text generation
+- Implement TextSummarizer for automated document processing
+- Establish robust language model lifecycle management
+- Engineer optimized prompts for consistent business-quality summarization
 
 ## Prerequisites
-- Completed Lab 2: OCR and Image Description
-- Understanding of language models and AI text processing
-- Knowledge of async/await patterns in C#
+- Completed Module 2: OCR and Image Description
+- Understanding of enterprise language model deployment and AI text processing
+- Proficiency with async/await patterns in production C# applications
 
 ## Step 1: Understanding Text AI Services Architecture
 
@@ -286,7 +286,7 @@ private string ExtractFullReportContent()
 ## Step 6: Understanding AI Model Behavior
 
 ### 6.1 Summarization Characteristics
-The Windows AI Platform's text summarizer:
+The Windows AI APIs text summarizer:
 - **Extractive**: Pulls key sentences from original content
 - **Concise**: Typically 20-30% of original length
 - **Context-Aware**: Maintains important relationships between concepts
@@ -422,4 +422,4 @@ Once text summarization is working:
 - Work with more complex prompts and formatting
 
 ---
-**🎓 Lab Complete!** You've successfully implemented AI-powered text summarization using Windows AI Platform language models.
+**✅ Module Complete!** You've successfully implemented robust AI text summarization using Windows AI APIs language models for enterprise deployment.

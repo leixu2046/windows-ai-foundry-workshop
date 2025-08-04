@@ -1,19 +1,20 @@
-# Lab Guide 1: Development Environment Setup
+# Module 1: Development Environment Setup
 
 ## Overview
-This guide will walk you through setting up your development environment for building AI-powered Windows applications using Windows AI APIs.
+This module establishes the development environment for building AI-powered Windows applications using the Windows AI Foundry AI APIs. Designed for enterprise developers, system integrators, and PC manufacturers creating demo applications.
 
-## Prerequisites
-- Windows 11 (Build 22000 or later)
-- Administrator access for package installation
-- Internet connection for downloading dependencies
+## System Requirements
+- Windows 11 Pro/Enterprise (Build 22000 or later)
+- Administrator privileges for development tools installation
+- High-speed internet connection for SDK and model downloads
+- Minimum 16GB RAM recommended for AI model processing
 
 ## Step 1: Install Visual Studio 2022
 
 ### 1.1 Download Visual Studio
 1. Go to [Visual Studio Downloads](https://visualstudio.microsoft.com/downloads/)
-2. Download **Visual Studio 2022 Community** (free) or higher edition
-3. Run the installer
+2. Download **Visual Studio 2022 Professional** or **Enterprise** edition
+3. Run the installer with administrator privileges
 
 ### 1.2 Select Workloads
 During installation, ensure you select these workloads:
@@ -26,23 +27,23 @@ In the **Individual components** tab, make sure to select:
 - ✅ **.NET 9.0 Runtime** or latest
 - ✅ **Git for Windows**
 
-## Step 2: Clone the Repository
+## Step 2: Acquire the Implementation Codebase
 
 ### 2.1 Open Visual Studio
 1. Launch Visual Studio 2022
 2. On the start screen, select **"Clone a repository"**
 
-### 2.2 Clone from GitHub
-1. In the repository URL field, enter:
+### 2.2 Clone Enterprise Repository
+1. In the repository URL field, enter your organization's repository:
    ```
-   https://github.com/your-org/InspectionReporter
+   https://github.com/your-enterprise-org/InspectionReporter
    ```
-2. Choose a local path for the project
+2. Select appropriate local development directory
 3. Click **"Clone"**
 
-*Alternative: Use Git command line*
+*Alternative: Enterprise Git workflow*
 ```bash
-git clone https://github.com/your-org/InspectionReporter.git
+git clone https://github.com/your-enterprise-org/InspectionReporter.git
 cd InspectionReporter
 ```
 
@@ -86,12 +87,12 @@ cd InspectionReporter
    - App launch
 
 ### 4.4 Expected Result
-You should see the AI Inspection Report application with:
-- ✅ Left panel with sample reports
-- ✅ Middle panel with document editor
-- ✅ Right panel with AI tools (initially disabled)
-- ✅ Top search bar
-- ✅ Settings button at bottom left
+You should see the Inspection Reporter application with:
+- ✅ Report management panel with sample inspection data
+- ✅ Document editing interface with rich text capabilities
+- ✅ AI processing panel (features initially disabled until implementation)
+- ✅ Global search interface
+- ✅ Feature configuration controls
 
 ## Step 5: Verify Skeleton UI
 
@@ -143,4 +144,4 @@ Before proceeding to the next lab:
 - [ ] Basic UI interactions work (clicking, typing)
 
 ---
-**🎓 Lab Complete!** You now have a working development environment and skeleton app ready for AI feature implementation.
+**✅ Module Complete!** Your development environment is configured and the foundation application is ready for AI feature implementation.
