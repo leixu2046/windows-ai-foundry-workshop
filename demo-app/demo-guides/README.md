@@ -9,6 +9,49 @@ This implementation guide demonstrates how to build AI-powered Windows applicati
 - PC manufacturers and resellers building demo applications
 - ISVs developing vertical market solutions
 
+## Repository Structure
+This repository contains the following structure:
+
+```
+windows-ai-foundry-workshop/
+├── demo-app/
+│   ├── demo-guides/          # Implementation guides and documentation
+│   │   ├── README.md        # This file - overview and getting started
+│   │   ├── 01-DevEnvironmentSetup.md
+│   │   ├── 02-OCR-and-ImageDescription.md
+│   │   ├── 03-TextSummarization.md
+│   │   ├── 04-StandardTicketGeneration.md
+│   │   └── 05-LoRA-TicketGeneration.md
+│   ├── demo-app-start/      # Skeleton application for hands-on implementation
+│   │   └── [Complete starter project with UI framework]
+│   └── demo-app-final/      # Complete working application with all AI features
+│       └── [Fully implemented solution for reference]
+└── LoRA Fine-Tuning Training Data/  # Sample datasets and training examples
+    └── [Training data for custom LoRA adapter creation]
+```
+
+## Quick Start Options
+
+### Option 1: Complete Working Demo
+**For immediate demonstration or reference:**
+1. Navigate to the `demo-app/demo-app-final/` folder
+2. Open the solution in Visual Studio 2022
+3. Press F5 to build and run the complete application
+4. Explore all implemented AI features
+
+### Option 2: Hands-On Implementation
+**For learning and step-by-step development:**
+1. Start with the `demo-app/demo-app-start/` folder (skeleton application)
+2. Follow the implementation guides in `demo-app/demo-guides/` 
+3. Build each AI feature progressively through the 5 modules
+4. Compare your work with `demo-app/demo-app-final/` as needed
+
+### Option 3: LoRA Training Data
+**For custom model training:**
+1. Examine sample training datasets in `LoRA Fine-Tuning Training Data/`
+2. Use these examples to understand LoRA training data format
+3. Create your own domain-specific training data using these patterns
+
 ## Technical Requirements
 
 ### Prerequisites
@@ -239,4 +282,16 @@ Developers should demonstrate:
 
 ---
 
-**🚀 Ready to Implement?** Begin with [Module 1: Development Environment Setup](01-DevEnvironmentSetup.md) to start building AI-powered Windows applications!
+## Getting Started
+
+### For Hands-On Implementation
+**🚀 Ready to Implement?** Begin with [Module 1: Development Environment Setup](01-DevEnvironmentSetup.md) using the `demo-app/demo-app-start/` folder to build AI features step-by-step.
+
+### For Quick Demo or Reference  
+**⚡ Need a Working Demo?** Go directly to the `demo-app/demo-app-final/` folder, open the solution in Visual Studio 2022, and press F5 to see all AI features in action.
+
+### Implementation Tips
+- Use `demo-app/demo-app-final/` as a reference while working through the implementation modules
+- Compare your progress with the complete solution at any time
+- Both applications share the same UI framework and architecture patterns
+- Explore `LoRA Fine-Tuning Training Data/` for examples of training custom LoRA adapters

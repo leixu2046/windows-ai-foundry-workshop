@@ -12,8 +12,11 @@ This module implements robust text summarization using Windows AI Foundry AI API
 
 ## Prerequisites
 - Completed Module 2: OCR and Image Description
+- Working with `demo-app/demo-app-start/` folder for hands-on implementation
 - Understanding of enterprise language model deployment and AI text processing
 - Proficiency with async/await patterns in production C# applications
+
+**💡 Tip**: Reference the complete implementation in `demo-app/demo-app-final/Services/AITextService.cs` if you need to see the finished code at any time.
 
 ## Step 1: Understanding Text AI Services Architecture
 

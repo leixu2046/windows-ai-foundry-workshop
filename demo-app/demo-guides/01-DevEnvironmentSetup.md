@@ -29,29 +29,56 @@ In the **Individual components** tab, make sure to select:
 
 ## Step 2: Acquire the Implementation Codebase
 
-### 2.1 Open Visual Studio
-1. Launch Visual Studio 2022
-2. On the start screen, select **"Clone a repository"**
-
-### 2.2 Clone Enterprise Repository
-1. In the repository URL field, enter your organization's repository:
+### 2.1 Clone the Repository
+1. Clone the complete repository from GitHub:
+   ```bash
+   git clone https://github.com/leixu2046/windows-ai-foundry-workshop.git
+   cd windows-ai-foundry-workshop
    ```
-   https://github.com/your-enterprise-org/InspectionReporter
-   ```
-2. Select appropriate local development directory
-3. Click **"Clone"**
 
-*Alternative: Enterprise Git workflow*
+### 2.2 Navigate to Demo App Folder
 ```bash
-git clone https://github.com/your-enterprise-org/InspectionReporter.git
-cd InspectionReporter
+cd demo-app
 ```
+
+The demo-app folder contains three components:
+- **demo-guides/**: Implementation documentation (including this guide)
+- **demo-app-start/**: Skeleton application for hands-on implementation  
+- **demo-app-final/**: Complete working application with all AI features
+
+### 2.3 Choose Your Starting Point
+
+**Option A: Start with Skeleton (Recommended for Implementation)**
+```bash
+cd demo-app-start
+```
+- Contains UI framework and basic structure
+- Ready for step-by-step AI feature implementation
+- Follow the implementation guides in `../demo-guides/`
+
+**Option B: Examine Complete Solution**
+```bash
+cd demo-app-final  
+```
+- Contains fully implemented application with all AI features
+- Use for reference, comparison, or immediate demonstration
+- All modules already implemented and working
+
+### 2.4 Open in Visual Studio
+1. Launch Visual Studio 2022
+2. Open the solution file in your chosen folder:
+   - **demo-app-start**: `InspectionReporter.sln` (skeleton)
+   - **demo-app-final**: `InspectionReporter.sln` (complete)
 
 ## Step 3: Verify Project Configuration
 
-### 3.1 Open the Solution
-1. Navigate to the cloned folder
-2. Double-click `InspectionReporter.sln` to open in Visual Studio
+### 3.1 Verify Solution Structure
+The solution should be open in Visual Studio. Depending on your choice:
+- **demo-app-start**: Basic UI framework, AI services stubbed out, ready for implementation
+- **demo-app-final**: Complete implementation with all AI features working
+
+You can also explore the repository root:
+- **LoRA Fine-Tuning Training Data/**: Sample datasets for training custom LoRA adapters
 
 ### 3.2 Check Windows App SDK Reference
 1. In **Solution Explorer**, expand your project
@@ -86,26 +113,41 @@ cd InspectionReporter
    - Package deployment
    - App launch
 
-### 4.4 Expected Result
+### 4.4 Expected Result Based on Your Choice
+
+**If using demo-app-start (skeleton):**
 You should see the Inspection Reporter application with:
 - ✅ Report management panel with sample inspection data
-- ✅ Document editing interface with rich text capabilities
-- ✅ AI processing panel (features initially disabled until implementation)
+- ✅ Document editing interface with rich text capabilities  
+- ✅ AI processing panel (features disabled/not implemented yet)
 - ✅ Global search interface
 - ✅ Feature configuration controls
 
-## Step 5: Verify Skeleton UI
+**If using demo-app-final (complete):**
+You should see the fully functional application with:
+- ✅ All UI components working
+- ✅ All AI features operational (OCR, image description, summarization, ticket generation)
+- ✅ Settings panel with working feature toggles
+- ✅ Complete error handling and user feedback
 
-### 5.1 Test Basic Functionality
+## Step 5: Verify Application State
+
+### 5.1 Test Basic UI Functions
 1. **Report Selection**: Click on different reports in the left panel
-2. **Document Editing**: Type in the document editor
-3. **Search Bar**: Click the search box (should show "not implemented" dialog)
+2. **Document Editing**: Type in the document editor  
+3. **Search Bar**: Click the search box (shows "not implemented" in skeleton)
 4. **Settings**: Click settings button at bottom left
 
-### 5.2 Check AI Features (Should be Disabled)
-1. **Add Image**: Button should be present but may be disabled
-2. **Summarize Report**: Button should be present but may be disabled
-3. **Generate Ticket**: Buttons should be present but may be disabled
+### 5.2 AI Features Status
+**demo-app-start (skeleton):**
+- **Add Image**: Button present but disabled or shows placeholder messages
+- **Summarize Report**: Button present but not functional yet
+- **Generate Ticket**: Buttons present but not implemented yet
+
+**demo-app-final (complete):**
+- **Add Image**: Fully functional with OCR and description generation
+- **Summarize Report**: Working AI summarization
+- **Generate Ticket**: Both standard and LoRA ticket generation working
 
 ## Troubleshooting
 
@@ -128,11 +170,25 @@ You should see the Inspection Reporter application with:
 - **Solution**: This is normal - subsequent builds will be faster
 
 ## Next Steps
-Once your environment is set up and the skeleton app runs successfully, you're ready to proceed to:
-- **Lab Guide 2**: Implementing OCR and Image Description
-- **Lab Guide 3**: Adding Text Summarization
-- **Lab Guide 4**: Standard Ticket Generation with Phi Silica
-- **Lab Guide 5**: LoRA-Enhanced Ticket Generation
+
+### If Using demo-app-start (Implementation Path):
+Ready to build AI features step by step:
+- **Module 2**: Implementing OCR and Image Description
+- **Module 3**: Adding Text Summarization  
+- **Module 4**: Standard Ticket Generation with Phi Silica
+- **Module 5**: LoRA-Enhanced Ticket Generation
+
+### If Using demo-app-final (Demo Path):
+Explore the complete working application:
+- Examine implemented AI services in the `Services/` folder
+- Test all AI features with sample data
+- Review code architecture and patterns
+- Use as reference while building your own implementation
+
+### Bonus: LoRA Training Data Exploration
+Navigate back to the repository root to explore:
+- **LoRA Fine-Tuning Training Data/**: Example datasets for training custom LoRA adapters
+- Use these patterns to create your own domain-specific training data
 
 ## Verification Checklist
 Before proceeding to the next lab:

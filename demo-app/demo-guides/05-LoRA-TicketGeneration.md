@@ -12,9 +12,12 @@ This final module implements LoRA (Low-Rank Adaptation) enhanced ticket generati
 
 ## Prerequisites
 - Completed Module 4: Standard Ticket Generation
+- Working with `demo-app/demo-app-start/` folder for hands-on implementation
 - Advanced understanding of machine learning model fine-tuning and deployment
 - Expert knowledge of enterprise file system operations and security in C#
 - Experience with experimental API patterns and production risk management
+
+**💡 Tip**: Reference the complete implementation in `demo-app/demo-app-final/Services/AITextService.cs` (ProcessLoraTextGenerationAsync method) and examine the LoRA adapter file in `demo-app/demo-app-final/Assets/lora_adapter.safetensors`. Also explore the sample training data in `LoRA Fine-Tuning Training Data/` folder.
 
 ## Step 1: Understanding LoRA Technology
 
@@ -78,11 +81,13 @@ To train an effective LoRA adapter for inspection reports:
 
 **Training Dataset Structure:**
 ```
-training_data/
+LoRA Fine-Tuning Training Data/
 ├── input_examples.jsonl      # Raw inspection content
 ├── expected_outputs.jsonl    # Desired JSON ticket format
 └── validation_set.jsonl      # Test data for evaluation
 ```
+
+**💡 Note**: Examine the actual training data examples in the repository's `LoRA Fine-Tuning Training Data/` folder to see real-world formatting and patterns.
 
 **Sample Training Pair:**
 ```json

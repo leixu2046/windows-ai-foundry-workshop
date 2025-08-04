@@ -16,8 +16,11 @@ Both features leverage Windows AI Foundry AI APIs for secure on-device processin
 
 ## Prerequisites
 - Completed Module 1: Development Environment Setup
+- Working with `demo-app/demo-app-start/` folder for hands-on implementation
 - Proficiency with async/await patterns in enterprise C# development
 - Understanding of image processing workflows and enterprise data handling
+
+**💡 Tip**: Reference the complete implementation in `demo-app/demo-app-final/Services/AIImageService.cs` if you need to see the finished code at any time.
 
 ## Step 1: Understanding the AI Service Architecture
 

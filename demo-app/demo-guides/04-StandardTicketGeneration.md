@@ -12,9 +12,12 @@ This module implements structured ticket generation using the Windows AI Foundry
 
 ## Prerequisites
 - Completed Module 3: Text Summarization
+- Working with `demo-app/demo-app-start/` folder for hands-on implementation
 - Proficiency with JSON format, parsing, and enterprise data interchange
 - Advanced prompt engineering and optimization techniques
 - Expert-level C# string manipulation and data processing
+
+**💡 Tip**: Reference the complete implementation in `demo-app/demo-app-final/Sample.xaml.cs` (GenerateTicketStandardBtn_Click method) for the finished code.
 
 ## Step 1: Understanding Structured Text Generation
 
