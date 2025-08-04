@@ -54,15 +54,129 @@ var options = new LanguageModelOptionsExperimental { LoraAdapter = _loraAdapter 
 var result = await _languageModelExperimental.GenerateResponseAsync(context, userContent, options);
 ```
 
-## Step 2: Examine the LoRA Adapter File
+## Step 2: Training LoRA Adapters with AI Toolkit
 
-### 2.1 Locate the Adapter
+### 2.1 Overview of LoRA Training Process
+Before using pre-trained adapters, it's important to understand how LoRA adapters are created. Training your own LoRA adapter allows you to customize AI behavior for specific business needs, output formats, and industry terminology.
+
+### 2.2 AI Toolkit for Visual Studio Code
+Microsoft's **AI Toolkit** extension for VSCode provides a streamlined workflow for training LoRA adapters:
+
+**Installation:**
+1. Open Visual Studio Code
+2. Install the **"AI Toolkit"** extension from the marketplace
+3. Configure Azure ML workspace connection for cloud training
+
+**Key Features:**
+- **Click-through guidance** for LoRA training workflows
+- **Azure integration** for scalable cloud-based training
+- **Data preparation tools** for training and validation datasets
+- **Model evaluation metrics** and performance monitoring
+
+### 2.3 Training Data Requirements
+To train an effective LoRA adapter for inspection reports:
+
+**Training Dataset Structure:**
+```
+training_data/
+├── input_examples.jsonl      # Raw inspection content
+├── expected_outputs.jsonl    # Desired JSON ticket format
+└── validation_set.jsonl      # Test data for evaluation
+```
+
+**Sample Training Pair:**
+```json
+// Input (raw inspection content)
+{
+  "input": "Inspected HVAC system on January 22. Found boiler at 85% efficiency, ductwork needs cleaning, dampers stuck on floor 2.",
+  "instruction": "Convert this inspection note to a structured JSON ticket."
+}
+
+// Expected Output (target format)
+{
+  "output": {
+    "date": "2025-01-22",
+    "location": "HVAC System",
+    "issues": ["Boiler efficiency below 90% specification", "Ductwork requires cleaning", "Floor 2 dampers malfunctioning"],
+    "recommendations": ["Schedule boiler tune-up", "Arrange ductwork cleaning", "Repair stuck dampers"]
+  }
+}
+```
+
+### 2.4 Training Process with AI Toolkit
+
+**Step-by-Step Workflow:**
+
+1. **Data Preparation**
+   - Collect 50-200 high-quality training examples
+   - Format data as input/output pairs
+   - Split into training (80%) and validation (20%) sets
+
+2. **Model Configuration**
+   - Select base model (Phi-3.5 recommended for small language models)
+   - Configure LoRA parameters (rank=16, alpha=32 typical values)
+   - Set training hyperparameters (learning rate, batch size, epochs)
+
+3. **Azure Training Setup**
+   - AI Toolkit handles Azure ML workspace provisioning
+   - Select appropriate compute instance (GPU recommended)
+   - Configure training job parameters through the UI
+
+4. **Training Execution**
+   - Submit training job to Azure
+   - Monitor progress through AI Toolkit dashboard
+   - Typical training time: 30 minutes to 2 hours depending on dataset size
+
+5. **Model Evaluation**
+   - Review training metrics (loss curves, accuracy)
+   - Test on validation set
+   - Download trained adapter (.safetensors file)
+
+### 2.5 LoRA Benefits for Small Language Models
+
+**Output Control Capabilities:**
+- **Format Consistency**: Ensures JSON output follows exact schema requirements
+- **Field Standardization**: Maintains consistent field names and data types
+- **Size Restrictions**: Controls response length (e.g., max 3 issues, 5 recommendations)
+- **Tone Adjustment**: Professional business language vs. technical jargon
+- **Domain Terminology**: Uses industry-specific vocabulary correctly
+
+**Business Value Examples:**
+```csharp
+// Standard Model Output (variable format)
+"issues": "Various HVAC problems including efficiency and cleaning needs"
+
+// LoRA-Trained Output (consistent structure)
+"issues": [
+  "Central boiler efficiency 85% (below 90% specification)",
+  "Ductwork debris accumulation requiring professional cleaning", 
+  "Zone dampers 2-4 mechanically stuck (airflow restriction)"
+]
+```
+
+**Training Investment vs. Benefits:**
+- **Training Time**: 1-3 hours (including data preparation)
+- **Training Cost**: $5-20 in Azure compute costs
+- **Business Impact**: 50-80% improvement in output consistency and format compliance
+- **ROI**: Significant reduction in post-processing and data validation requirements
+
+### 2.6 Production Considerations
+- **Model Versioning**: Track adapter versions for rollback capabilities
+- **A/B Testing**: Compare standard vs. LoRA outputs in production
+- **Continuous Learning**: Periodically retrain with new examples
+- **Quality Assurance**: Validate outputs meet business requirements
+
+*Note: For this demonstration, we'll use a pre-trained adapter to save time, but in production scenarios, you would train adapters specific to your data and requirements.*
+
+## Step 3: Using Pre-Trained LoRA Adapters
+
+### 3.1 Locate the Adapter
 In your project, examine `Assets/lora_adapter.safetensors`:
 - **File Format**: SafeTensors (secure tensor storage format)
 - **Size**: Typically 10-200MB (much smaller than full models)
 - **Purpose**: Construction inspection-specific fine-tuning
 
-### 2.2 Understanding SafeTensors
+### 3.2 Understanding SafeTensors
 SafeTensors is a secure format for storing ML model weights:
 - **Security**: Prevents code injection attacks
 - **Efficiency**: Fast loading and memory mapping
@@ -70,9 +184,9 @@ SafeTensors is a secure format for storing ML model weights:
 
 *Note: In a real lab environment, you would train this adapter on construction inspection data. For this lab, we assume it's provided.*
 
-## Step 3: Implement LoRA Initialization
+## Step 4: Implement LoRA Initialization
 
-### 3.1 Add Required Using Statements
+### 4.1 Add Required Using Statements
 Ensure these imports in `AITextService.cs`:
 
 ```csharp
@@ -80,7 +194,7 @@ using Microsoft.Windows.AI.Text.Experimental;
 using System.IO;
 ```
 
-### 3.2 Implement LoRA Adapter Initialization
+### 4.2 Implement LoRA Adapter Initialization
 Locate and implement the `InitializeLoraAdapterFeature()` method:
 
 ```csharp
@@ -137,7 +251,7 @@ private bool InitializeLoraAdapterFeature()
 - Adapter files must exist and be accessible
 - Loading can fail due to file corruption or compatibility issues
 
-### 3.3 Update Main Initialization
+### 4.3 Update Main Initialization
 Update the `InitializeAsync()` method to include LoRA:
 
 ```csharp
@@ -158,9 +272,9 @@ public override async Task<bool> InitializeAsync()
 }
 ```
 
-## Step 4: Implement LoRA Text Generation
+## Step 5: Implement LoRA Text Generation
 
-### 4.1 Implement the LoRA Processing Method
+### 5.1 Implement the LoRA Processing Method
 Implement the `ProcessLoraTextGenerationAsync()` method:
 
 ```csharp
@@ -219,7 +333,7 @@ public async Task<string> ProcessLoraTextGenerationAsync(string systemPrompt, st
 - `LanguageModelOptionsExperimental` carries the adapter reference
 - The API pattern is different from standard text generation
 
-### 4.2 Understanding Context vs. Combined Prompts
+### 5.2 Understanding Context vs. Combined Prompts
 
 **Why Different API Patterns?**
 
@@ -236,14 +350,14 @@ User Input: "What is the weather?" (actual query)
 
 This separation allows LoRA adapters to modify system behavior without affecting user input processing.
 
-## Step 5: Test Your LoRA Implementation
+## Step 6: Test Your LoRA Implementation
 
-### 5.1 Build and Run
+### 6.1 Build and Run
 1. Press **F5** to build and run the application
 2. Select a report with substantial content
 3. Click **"Generate Ticket (LoRA)"** button (right-most button)
 
-### 5.2 Compare Standard vs. LoRA Output
+### 6.2 Compare Standard vs. LoRA Output
 
 **Test the Same Report with Both Models:**
 
@@ -258,7 +372,7 @@ This separation allows LoRA adapters to modify system behavior without affecting
 - **LoRA**: More accurate issue categorization
 - **LoRA**: Improved recommendation specificity
 
-### 5.3 Analyze Output Patterns
+### 6.3 Analyze Output Patterns
 
 **Standard Model Output Example:**
 ```json
@@ -288,9 +402,9 @@ This separation allows LoRA adapters to modify system behavior without affecting
 }
 ```
 
-## Step 6: Understanding LoRA Model Behavior
+## Step 7: Understanding LoRA Model Behavior
 
-### 6.1 LoRA Advantages in This Domain
+### 7.1 LoRA Advantages in This Domain
 
 **Better Domain Knowledge:**
 - Understands construction terminology
@@ -310,7 +424,7 @@ This separation allows LoRA adapters to modify system behavior without affecting
 - More specific location descriptions
 - Realistic timeline recommendations
 
-### 6.2 When to Use LoRA vs. Standard
+### 7.2 When to Use LoRA vs. Standard
 
 **Use LoRA When:**
 - Domain expertise is critical
@@ -324,7 +438,7 @@ This separation allows LoRA adapters to modify system behavior without affecting
 - Simple text generation
 - Broad domain coverage needed
 
-### 6.3 LoRA Limitations
+### 7.3 LoRA Limitations
 
 **Potential Issues:**
 - **Overfitting**: May be too specialized for varied inputs
@@ -332,9 +446,9 @@ This separation allows LoRA adapters to modify system behavior without affecting
 - **Limited Scope**: May struggle with out-of-domain content
 - **File Dependency**: Requires adapter file to be present
 
-## Step 7: Advanced LoRA Configuration (Optional)
+## Step 8: Advanced LoRA Configuration (Optional)
 
-### 7.1 Dynamic Adapter Loading
+### 8.1 Dynamic Adapter Loading
 For production systems, consider supporting multiple adapters:
 
 ```csharp
@@ -367,7 +481,7 @@ public async Task<LowRankAdaptation?> LoadAdapterAsync(string adapterName)
 }
 ```
 
-### 7.2 Adapter Validation
+### 8.2 Adapter Validation
 Verify adapter compatibility before use:
 
 ```csharp
@@ -398,7 +512,7 @@ private bool ValidateAdapter(string adapterPath)
 }
 ```
 
-### 7.3 Performance Monitoring
+### 8.3 Performance Monitoring
 Track LoRA vs. standard model performance:
 
 ```csharp
