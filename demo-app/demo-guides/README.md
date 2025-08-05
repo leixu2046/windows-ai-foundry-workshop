@@ -62,8 +62,7 @@ windows-ai-foundry-workshop/
 
 ### Lab Sequence
 
-#### 🛠️ [Lab 1: Development Environment Setup](01-DevEnvironmentSetup.md)
-**Duration:** 30-45 minutes  
+#### 🛠️ [Lab 1: Development Environment Setup](01-DevEnvironmentSetup.md)  
 **Skills:** Visual Studio setup, project configuration, Windows App SDK
 
 Configure your development environment for Windows AI APIs development. Establish the foundation application architecture and verify deployment capabilities for enterprise distribution.
@@ -76,8 +75,7 @@ Configure your development environment for Windows AI APIs development. Establis
 
 ---
 
-#### 🖼️ [Lab 2: OCR and Image Description](02-OCR-and-ImageDescription.md)
-**Duration:** 60-90 minutes  
+#### 🖼️ [Lab 2: OCR and Image Description](02-OCR-and-ImageDescription.md)  
 **Skills:** Windows AI APIs basics, image processing, service architecture
 
 Implement robust OCR text extraction and AI-powered image analysis. Master Windows AI APIs and establish scalable service architecture patterns.
@@ -96,8 +94,7 @@ Implement robust OCR text extraction and AI-powered image analysis. Master Windo
 
 ---
 
-#### 📄 [Lab 3: Text Summarization](03-TextSummarization.md)
-**Duration:** 45-60 minutes  
+#### 📄 [Lab 3: Text Summarization](03-TextSummarization.md)  
 **Skills:** Language models, text processing, document analysis
 
 Implement AI-powered text summarization using Windows AI APIs language models. Learn about language model initialization, text processing pipelines, and content optimization.
@@ -116,8 +113,7 @@ Implement AI-powered text summarization using Windows AI APIs language models. L
 
 ---
 
-#### 🎫 [Lab 4: Standard Ticket Generation](04-StandardTicketGeneration.md)
-**Duration:** 75-90 minutes  
+#### 🎫 [Lab 4: Standard Ticket Generation](04-StandardTicketGeneration.md)  
 **Skills:** Prompt engineering, JSON processing, structured outputs
 
 Create structured inspection tickets using prompt engineering and the standard language model. Learn advanced prompt design, JSON parsing, and professional output formatting.
@@ -136,8 +132,7 @@ Create structured inspection tickets using prompt engineering and the standard l
 
 ---
 
-#### 🚀 [Lab 5: LoRA-Enhanced Ticket Generation](05-LoRA-TicketGeneration.md)
-**Duration:** 60-75 minutes  
+#### 🚀 [Lab 5: LoRA-Enhanced Ticket Generation](05-LoRA-TicketGeneration.md)  
 **Skills:** Advanced AI, model fine-tuning, specialized adapters
 
 Implement LoRA (Low-Rank Adaptation) enhanced ticket generation for superior domain-specific performance. Learn about fine-tuned models, adapter loading, and advanced AI patterns.
@@ -172,13 +167,13 @@ AIServiceBase (Abstract)
 ```
 
 ### Feature Matrix
-| Feature | Technology | Lab | Complexity | Performance |
-|---------|------------|-----|------------|-------------|
-| OCR Text Extraction | TextRecognizer | 2 | ⭐⭐ | Fast |
-| Image Description | ImageDescriptionGenerator | 2 | ⭐⭐ | Fast |
-| Text Summarization | TextSummarizer | 3 | ⭐⭐⭐ | Medium |
-| Standard Tickets | LanguageModel | 4 | ⭐⭐⭐⭐ | Medium |
-| LoRA Tickets | LanguageModelExperimental | 5 | ⭐⭐⭐⭐⭐ | Slower |
+| Feature | Windows AI API |
+|---------|------------|
+| OCR Text Extraction | TextRecognizer |
+| Image Description | ImageDescriptionGenerator |
+| Text Summarization | TextSummarizer |
+| Standard Tickets | LanguageModel |
+| LoRA Tickets | LanguageModelExperimental |
 
 ## Learning Objectives Progression
 
