@@ -154,7 +154,6 @@ You should see the fully functional application with:
 ### Build Errors
 **Error**: "Windows App SDK not found"
 - **Solution**: Install Windows App SDK from [Microsoft Store](https://apps.microsoft.com/store/detail/windows-app-runtime/9P7JF9WZNV1C) or via Visual Studio Installer
-
 **Error**: "Target framework not supported"
 - **Solution**: Update Visual Studio to latest version and install .NET 9.0 SDK
 
@@ -162,6 +161,8 @@ You should see the fully functional application with:
 **Error**: "Package deployment failed"
 - **Solution**: Enable Developer Mode in Windows Settings → Privacy & Security → For developers
 
+**Error**: "App crashes on startup"
+- **Solution**: Verify that you have the correct configuration set (x64 or ARM64)
 ### Performance Issues
 **Issue**: Slow first build
 - **Solution**: This is normal - subsequent builds will be faster
