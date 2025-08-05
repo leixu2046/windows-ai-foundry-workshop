@@ -162,9 +162,6 @@ You should see the fully functional application with:
 **Error**: "Package deployment failed"
 - **Solution**: Enable Developer Mode in Windows Settings → Privacy & Security → For developers
 
-**Error**: "App crashes on startup"
-- **Solution**: This is expected in the skeleton - AI services are not implemented yet
-
 ### Performance Issues
 **Issue**: Slow first build
 - **Solution**: This is normal - subsequent builds will be faster
