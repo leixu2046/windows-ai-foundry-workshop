@@ -9,11 +9,11 @@ This repository contains materials for a **2-hour enterprise workshop on Windows
 Participants will learn how to leverage Windows AI Foundry to:
 
 - **Build Production-Ready AI Applications** using native Windows AI APIs:
-  - [Phi Silica](https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica) - Small language model for text generation and structured outputs
-  - [Imaging APIs](https://learn.microsoft.com/en-us/windows/ai/apis/imaging) - AI-powered image analysis and content generation
-  - [OCR](https://learn.microsoft.com/en-us/windows/ai/apis/text-recognition) - Professional-grade text extraction from images
-  - [Semantic Search (preview)](https://aka.ms/WindowsAISemanticSearch) - Intelligent document and content discovery
-  - [LoRA Fine-Tuning](https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica-lora) - Custom model adaptation for specialized business domains
+  - [Phi Silica](https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica) - Small language model optimized for Copilot+ PCs
+  - [Imaging APIs](https://learn.microsoft.com/en-us/windows/ai/apis/imaging) - AI-powered image processing and analysis
+  - [OCR](https://learn.microsoft.com/en-us/windows/ai/apis/text-recognition) - Fast and powerful text extraction from images
+  - [LoRA Fine-Tuning](https://learn.microsoft.com/en-us/windows/ai/apis/phi-silica-lora) - Tune Phi Silica for structured output or specialized domains
+  - [Application Content Semantic Search (private preview)](https://aka.ms/WindowsAISemanticSearch) - "Assignment" to learn more about App Content Indexer and sign up for private preview access
 
 - **Deploy Enterprise AI Solutions** that operate entirely on-device for:
   - Enhanced data privacy and compliance
@@ -22,7 +22,7 @@ Participants will learn how to leverage Windows AI Foundry to:
   - Cost-effective scaling across enterprise deployments
 
 - **Optimize for Copilot+ PCs** to deliver:
-  - Hardware-accelerated AI processing
+  - Hardware-accelerated AI processing via NPU
   - Energy-efficient inference
   - Seamless integration with Windows ecosystem
 
@@ -78,11 +78,10 @@ Sample datasets and examples for:
 - Training data preparation patterns
 
 ### 🔗 **Additional Resources**
-- [Windows AI Platform Documentation](https://learn.microsoft.com/en-us/windows/ai/)
+- [Windows AI APIs Documentation](https://learn.microsoft.com/en-us/windows/ai/)
 - [Copilot+ PC Developer Guide](https://learn.microsoft.com/en-us/windows/ai/copilot-pc)
 - [AI Toolkit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-windows-ai-studio.windows-ai-studio)
-- [Windows AI Samples Gallery](https://github.com/microsoft/WindowsAI-Samples)
-- [Enterprise AI Deployment Best Practices](https://learn.microsoft.com/en-us/windows/ai/deployment/)
+- [Windows AI Dev Gallery](https://github.com/microsoft/ai-dev-gallery)
 
 ---
 
@@ -99,21 +98,6 @@ Explore `LoRA Fine-Tuning Training Data/` to understand model customization patt
 
 ---
 
-## Workshop Format
-
-### **Interactive Learning Approach**
-- Hands-on coding with immediate results
-- Real-time problem solving and debugging
-- Q&A throughout the implementation process
-- Participant-driven exploration of AI capabilities
-
-### **Discussion-Based Use Case Exploration**
-- Participants share their specific business challenges
-- Collaborative brainstorming on AI application opportunities
-- Technical feasibility discussions for real-world scenarios
-- Follow-up planning for proof-of-concept development
-
----
 
 ## Technical Requirements
 
