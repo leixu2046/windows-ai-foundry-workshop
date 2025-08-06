@@ -67,8 +67,8 @@ cd demo-app-final
 ### 2.4 Open in Visual Studio
 1. Launch Visual Studio 2022
 2. Open the solution file in your chosen folder:
-   - **demo-app-start**: `InspectionReporter.sln` (skeleton)
-   - **demo-app-final**: `InspectionReporter.sln` (complete)
+   - **demo-app-start**: `Describe_Image_WCRSample.sln` (skeleton)
+   - **demo-app-final**: `Describe_Image_WCRSample.sln` (complete)
 
 ## Step 3: Verify Project Configuration
 
