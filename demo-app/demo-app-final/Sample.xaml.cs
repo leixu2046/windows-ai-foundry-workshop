@@ -576,6 +576,11 @@ Repair stuck dampers on second floor within two weeks. Schedule boiler efficienc
     {
         if (_currentReport == null) return "";
 
+        // TODO: Once semantic search is implemented, include QueryTextBox.Text here to provide
+        // additional context from search results of previous reports or supplementary information
+        // that doesn't go into the official report but helps the language model generate better
+        // summaries and tickets.
+        
         var content = $"Inspection Report: {_currentReport.Title}\nCreated: {_currentReport.CreatedDate:yyyy-MM-dd HH:mm}\n\n";
         
         // Get plain text content from the document
