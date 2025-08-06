@@ -1,1 +1,0 @@
-C:\Users\lex\source\repos\Describe_Image_WCRSample\Describe_Image_WCRSample.csproj;arm64
