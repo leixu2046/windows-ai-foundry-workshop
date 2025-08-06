@@ -22,6 +22,94 @@ Both features leverage Windows AI Foundry AI APIs for secure on-device processin
 
 **💡 Tip**: Reference the complete implementation in `demo-app/demo-app-final/Services/AIImageService.cs` if you need to see the finished code at any time.
 
+## Step 0: Setting Up the AI Service Coordination Layer
+
+Before implementing individual AI services, you'll need to create a coordination service that manages all AI services and provides a unified interface for the UI. This architectural pattern simplifies service management and UI state handling.
+
+### 0.1 Copy AISettingsService from Final Implementation
+
+The `AISettingsService` acts as a coordination layer between your UI and individual AI services. Instead of implementing this from scratch, copy it from the final implementation:
+
+**Action Required:**
+1. Copy `AISettingsService.cs` from `demo-app/demo-app-final/Services/` to `demo-app/demo-app-start/Services/`
+2. This service provides:
+   - Unified access to all AI service properties (availability and enabled states)
+   - Centralized UI state management logic
+   - Coordinated initialization of all AI services
+   - Helper methods for button and toggle state management
+
+### 0.2 Understanding the Coordination Pattern
+
+The `AISettingsService` implements a coordination pattern that:
+
+**Dependency Management:**
+```csharp
+public AISettingsService(AIImageService imageService, AITextService textService)
+{
+    _imageService = imageService ?? throw new ArgumentNullException(nameof(imageService));
+    _textService = textService ?? throw new ArgumentNullException(nameof(textService));
+}
+```
+
+**Property Forwarding:**
+- Exposes properties from both image and text services
+- Provides unified access patterns for availability checking
+- Manages enabled/disabled states across all services
+
+**UI State Logic:**
+```csharp
+public bool ShouldEnableImageButton()
+{
+    return (_imageService.IsOcrAvailable && _imageService.IsOcrEnabled) || 
+           (_imageService.IsImageDescriptionAvailable && _imageService.IsImageDescriptionEnabled);
+}
+```
+
+**Coordinated Initialization:**
+```csharp
+public async Task InitializeAllServicesAsync()
+{
+    await _imageService.InitializeAsync();
+    await _textService.InitializeAsync();
+}
+```
+
+### 0.3 Integration with Main UI
+
+In your main UI code (`Sample.xaml.cs`), you'll use this pattern:
+
+```csharp
+#if HAS_AI_SERVICES
+    private AIImageService? _imageService;
+    private AITextService? _textService;
+    private AISettingsService? _settingsService;
+#endif
+
+private void InitializeAIServices()
+{
+#if HAS_AI_SERVICES
+    try
+    {
+        _imageService = new AIImageService();
+        _textService = new AITextService();
+        _settingsService = new AISettingsService(_imageService, _textService);
+    }
+    catch (Exception ex)
+    {
+        App.Window?.ShowException(ex, "Failed to initialize AI services");
+    }
+#endif
+}
+```
+
+This coordination pattern provides:
+- **Separation of Concerns**: UI logic separate from service implementation
+- **Centralized State Management**: Single source of truth for AI service states
+- **Simplified Error Handling**: Coordinated initialization and error propagation
+- **Testability**: Easy to mock and test service interactions
+
+**Note on Two-Phase Initialization:** The coordination service uses a two-phase initialization pattern: (1) Constructor creates service instances synchronously, (2) `InitializeAllServicesAsync()` performs async model loading during page navigation. This separates object creation from potentially slow async operations.
+
 ## Step 1: Understanding and Implementing the AI Service Architecture
 
 Before implementing specific AI features, you need to understand the foundational architecture that all AI services share. This step is crucial for creating maintainable, testable, and robust AI integrations.
