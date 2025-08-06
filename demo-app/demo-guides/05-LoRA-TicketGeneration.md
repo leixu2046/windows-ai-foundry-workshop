@@ -631,12 +631,12 @@ Congratulations! You've implemented a robust AI-powered inspection system with:
 ### Architecture Overview
 ```
 ┌─────────────────┐    ┌──────────────────┐    ┌─────────────────┐
-│   UI Layer      │    │   Service Layer  │    │   AI Platform  │
+│   UI Layer      │    │   Service Layer  │    │   AI Platform   │
 │                 │    │                  │    │                 │
-│ • Sample.xaml   │───▶│ • AIImageService │───▶│ • TextRecognizer│
+│ • Sample.xaml   │--->│ • AIImageService │--->│ • TextRecognizer│
 │ • Settings      │    │ • AITextService  │    │ • ImageDescGen  │
 │ • Formatting    │    │ • AISettings     │    │ • LanguageModel │
-│                 │    │                 │    │ • LoRA Adapter  │
+│                 │    │                  │    │ • LoRA Adapter  │
 └─────────────────┘    └──────────────────┘    └─────────────────┘
 ```
 
