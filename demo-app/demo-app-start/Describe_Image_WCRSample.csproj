@@ -14,6 +14,7 @@
     <LangVersion>preview</LangVersion>
     <AppxOSMinVersionReplaceManifestVersion>false</AppxOSMinVersionReplaceManifestVersion>
     <AppxOSMaxVersionTestedReplaceManifestVersion>false</AppxOSMaxVersionTestedReplaceManifestVersion>
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
     <!-- Conditional compilation - define HAS_AI_SERVICES when Services folder exists -->
     <DefineConstants Condition="Exists('Services\')" >$(DefineConstants);HAS_AI_SERVICES</DefineConstants>
   </PropertyGroup>
